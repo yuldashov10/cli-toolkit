@@ -2,7 +2,8 @@
         lint format check \
         test cov \
         pre-commit \
-        clean project_tree project_tree_short
+        clean project_tree project_tree_short \
+        commit
 
 # Variables
 PYTHON     = poetry run python
@@ -55,3 +56,6 @@ project_tree: ## Show full project tree
 
 project_tree_short: ## Show project tree (depth 2)
 	tree -a -L 2 -I ".venv|.git|.vscode|.idea|.mypy_cache|__pycache__|htmlcov|*.pyc|*.log|logs|.pytest_cache|.coverage|.DS_Store"
+
+commit: ## Make a commit with commitizen
+	poetry run cz commit
