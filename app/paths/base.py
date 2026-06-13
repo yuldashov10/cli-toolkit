@@ -2,7 +2,7 @@
 
 A single place to define *where* the project stores its files.
 Every directory is expressed as a class whose ``.get()`` method returns
-an absolute :class:``pathlib.Path``, optionally creating the directory on
+an absolute :class:`pathlib.Path`, optionally creating the directory on
 the fly.
 
 Usage::
@@ -17,7 +17,7 @@ Usage::
 
 Adding a new directory
 ~~~~~~~~~~~~~~~~~~~~~~
-Subclass :class:``BasePath`` and set ``_root``::
+Subclass :class:`BasePath` and set ``_root``::
 
     class CachePath(BasePath):
         _root = "cache"
@@ -62,7 +62,7 @@ class BasePath:
                          parent directory) when it does not exist yet.
 
         Returns:
-            An absolute :class:``pathlib.Path``.
+            An absolute :class:`pathlib.Path`.
 
         Example::
 
