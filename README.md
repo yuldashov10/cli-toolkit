@@ -62,9 +62,14 @@ make run
 │   ├── paths/        # Path helpers
 │   └── utils/        # Progress bar
 ├── config.yaml
+├── docs/
+│   └── images/       # Screenshots and assets
 ├── .env.example
 ├── main.py
 ├── pyproject.toml
+├── tests/
+│   ├── conftest.py   # Shared fixtures
+│   └── test_*.py     # Tests for each module
 └── Makefile
 ```
 
@@ -97,6 +102,28 @@ make check         # flake8 + isort + black (no changes)
 make test          # pytest
 make commit        # commitizen commit
 ```
+
+---
+
+## Testing
+
+```bash
+make test          # run tests
+make cov           # run tests with coverage report
+```
+
+Tests cover:
+
+- `app/exceptions` – exception hierarchy, `hint`, `path`, `__str__`
+- `app/files` – readers, writers (roundtrip), selectors
+- `app/paths` – path resolution, `ensure=True`, `exists()`
+- `app/config` – config loading priorities (env → yaml → defaults)
+
+---
+
+## Preview
+
+![cli-toolkit-preview.png](docs/images/cli-toolkit-preview.png)
 
 ---
 
