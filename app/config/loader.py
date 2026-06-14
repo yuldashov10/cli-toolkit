@@ -73,7 +73,9 @@ def load_config(
             ) from exc
 
     def _get(key: str, fallback: str) -> str:
-        return os.environ.get(key.upper()) or str(yaml_data.get(key, fallback))
+        return os.environ.get(key.upper()) or str(
+            yaml_data.get(key.lower(), fallback)
+        )
 
     return AppConfig(
         app_name=_get("APP_NAME", "cli-toolkit"),
