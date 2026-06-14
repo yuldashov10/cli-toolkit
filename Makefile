@@ -13,10 +13,10 @@ help: ## Show this help
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "  \033[36m%-20s\033[0m %s\n", $$1, $$2}'
 
 install: ## Install dependencies only
-	poetry install --without dev
+	poetry install --without dev --no-root
 
 install-dev: ## Install all dependencies including dev tools
-	poetry install
+	poetry install --no-root
 	poetry run pre-commit install
 
 run: ## Run the project
